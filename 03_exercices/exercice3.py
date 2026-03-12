@@ -46,6 +46,7 @@ def test_remplir_formulaire():
 
         assert "John Doe" in output_text, "Nom non trouvé"
         assert "john@example.com" in output_text, "Email non trouvé"
+        assert "123 Main Street" in output_text, "Adresse non trouvé"
         print("Données affichées correctement")
 
         print("\nTest réussi!")
