@@ -9,7 +9,7 @@
 3. Cliquez sur le bouton "Start"
 4. Attendez explicitement (max 10 secondes) que le texte "Hello World!" apparaisse
 5. Vérifiez que le texte contient "Hello World!"
-6. Vérifiez que le texte contient "It's gone!"
+6. Vérifiez que le texte ne contient pas "It's gone!"
 7. Fermez le navigateur
 
 **Validation**:
