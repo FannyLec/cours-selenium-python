@@ -1,0 +1,47 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+
+from booksPage import BooksPage
+from report import generate_report
+
+
+def main():
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    page = BooksPage(driver)
+    
+
+    try:
+        print("=" * 60)
+        print("EXTRACTION DE DONNÉES DE LIVRES")
+        print("=" * 60)
+
+        print("\n--- Phase 1: Navigation ---")
+        page.open()
+        print("Accédé à books.toscrape.com")
+
+        page.wait_for_books_to_load()
+        print("Livres chargés")
+
+        print("\n--- Phase 2: Extraction des Données ---")
+        books = page.extract_book_data()
+        print(f"{len(books)} livres extraits avec succès")
+
+        for book in books:
+            print(f"Livre {book['id']}: {book['title']} - £{book['price']:.2f} ({book['rating']})")
+
+        generate_report(books)
+
+        print("\nTP RÉUSSI!")
+
+    except Exception as e:
+        print(f"\nErreur: {e}")
+        import traceback
+        traceback.print_exc()
+
+    finally:
+        driver.quit()
+
+
+if __name__ == "__main__":
+    main()
