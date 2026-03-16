@@ -241,7 +241,7 @@ def demo_saucedemo_sorting():
 def main():
     """Menu principal"""
     print("\n" + ""*60)
-    print("  SELENIUM DEMO 5: SAUCE DEMO E-COMMERCE")
+    print("  SELENIUM DEMO: SAUCE DEMO E-COMMERCE")
     print(""*60)
 
     try:
